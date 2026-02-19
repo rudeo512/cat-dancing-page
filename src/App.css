@@ -1,0 +1,95 @@
+@import './styles/animations.css';
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 별 배경 */
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* 메인 카드 */
+.card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  padding: 48px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 140, 0, 0.08) inset;
+  max-width: 480px;
+  width: 90%;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emoji {
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+  min-height: 1.4em;
+  transition: opacity 0.3s ease;
+}
+
+/* 접근성: 모션 감소 설정 */
+@media (prefers-reduced-motion: reduce) {
+  .dancing-cat,
+  .cat-shadow,
+  .note,
+  .star {
+    animation: none !important;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .card {
+    padding: 32px 20px 28px;
+    border-radius: 20px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 56px 56px 48px;
+  }
+}
